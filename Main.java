@@ -1,103 +1,55 @@
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class Main {
+class Main{
     public static void main(String[] args) {
-//exam1();
-//exam2();
-//exam3();
-exam4();
+
+
+
+        List<String> articles = new ArrayList<>();
+        // 리스트에 여러개가 들어가니 변수이름은 복수로 지어줘야함
+        // add함수 : list에 값 추가
+        articles.add("hello");
+        articles.add("bye");
+        articles.add("good");
+        articles.add("반가워요");
+
+        // get 함수 : list 안에 있는 데이터 가져오기
+        for(int i=0;i< articles.size();i++){
+            System.out.println(articles.get(i));
+        }
+        // set 함수 : list에 값 수정(index, 수정 할 데이터);
+        articles.set(1,"잘가세요");
+        System.out.println(articles.get(1));
+
+        // contains 함수 : lost 안에 값 유무 확인
+
+        System.out.println(articles.contains("어서오세요"));
+        System.out.println(articles.contains("반가워요"));
+
+        // indexOf 함수 : list 안에 값 위치 확인
+        System.out.println("값 위치 : "+ articles.indexOf("반가워요"));
+
+        //size() 함수 : ArrayList의 개수를 리턴
+        System.out.println("List size : " + articles.size());
+
+        // remove() 함수 : ArrauList에 데이터 삭제
+        // 방법 2개
+         articles.remove(0) ;// index로 접근하여 삭제
+         articles.remove("반가워요");  //값으로 접근하여 삭제
+
+        // 반복문 이용해서 list 순회
+        for(int i=0;i<articles.size();i++){
+            System.out.println(articles.get(i));
         }
 
-  static void exam4() {
-      System.out.println("== 예제 4 ==");
-      List<Article> articles = new ArrayList<>();
-      articles.add(new Article());
-      articles.add(new Article());
-      articles.add(new Article());
-      articles.add(new Article());
-      articles.add(new Article());
 
-      for(int i =0; i< articles.size();i++){
-          Article article = (Article) articles.get(i);
-          System.out.println(article.id);
-      }
+
+
+
+
 
     }
 
-    static void exam3() {
-         System.out.println("== 예제 3 ==");
-         ArrayList<Article> articles = new ArrayList<Article>();
-         articles.add(new Article());
-         articles.add(new Article());
-         articles.add(new Article());
-         articles.add(new Article());
-         articles.add(new Article());
 
-         for(int i =0; i< articles.size();i++){
-             Article article = (Article) articles.get(i);
-             System.out.println(article.id);
-         }
-    }
-
-
-    static void exam1() {
-         System.out.println("== 예제 1 ==");
-         int articlesSize = 0;
-         Article[] articles = new Article[1000];
-         articles[0] = new Article();
-         articlesSize++;
-         articles[1] = new Article();
-         articlesSize++;
-         articles[2] = new Article();
-         articlesSize++;
-         articles[3] = new Article();
-         articlesSize++;
-         System.out.println(articles[0].id);
-         System.out.println(articles[1].id);
-         System.out.println(articles[2].id);
-         System.out.println(articles[3].id);
-
-         for(int i =0; i< articlesSize;i++){
-             System.out.println(articles[i].id);
-         }
-    }
-
-    // 리스트의 좋은 점
-//    1. 기억하는 것을 자기가 알아서 하기 때문에 int articlesSize 만들필요없다.
-//        2. new Article[1000] -> 이 사이즈를 내가 정할 필요없다.
-//                3. 넣을때도 알아서 들어가기 때문에 크게 신경 쓸 필요 없다.
-    static void exam2() {
-
-                System.out.println("== 예제 2 ==");
-        ArrayList articles = new ArrayList();
-        articles.add(new Article());
-          articles.add(new Article());
-          articles.add(new Article());
-          articles.add(new Article());
-          articles.add(new Article());
-
-          for(int i =0; i< articles.size();i++){
-              Article article = (Article) articles.get(i);
-              System.out.println(article.id);
-          }
-
-    }
 }
-
-    class Article{
-    static int lastId = 0;
-    int id;
-    String regDate;
-
-        Article(){
-            this(lastId+1,"2022-08-22 21:27:00");
- lastId++;
-        }
-        Article(int id,String regDate){
-            this.id = id;
-            this.regDate = regDate;
-        }
-    }
-
